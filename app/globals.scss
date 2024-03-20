@@ -22,14 +22,17 @@
   }
 }
 
+body {
+  font-size: 0.875rem;
+}
+
 .user-message {
   background-color: var(--colorPrimary);
   border-radius: 4px;
-  color: #FFF;
+  color: #fff;
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   text-align: right;
-  font-size: 0.875rem;
 }
 
 .assistant-message {
@@ -38,5 +41,52 @@
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   text-align: left;
-  font-size: 0.875rem;
+}
+
+.form {
+  margin-top: 2rem;
+
+  > div {
+    min-height: 0;
+  }
+
+  [data-testid="errorComponent"] {
+    display: none;
+  }
+}
+
+.prompt-grid {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.prompt-card {
+  background-color: #fff;
+  border: 1px solid var(--colorGreyLight);
+  padding: 1rem;
+}
+
+.empty-message {
+  margin-bottom: 2rem;
+}
+
+.bottom-section {
+  margin-top: auto;
+}
+
+.nav {
+  height: 64px;
+  background-color: var(--colorPrimary);
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+
+  img {
+    width: 80px;
+  }
+}
+
+.chat-wrapper {
+  min-height: calc(100vh - 64px);
 }

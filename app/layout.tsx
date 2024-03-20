@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 import "@payroc/react/build/styles.css";
+import Image from "next/image";
+
+import Logo from "@/public/payroc-white.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Avatar } from "@payroc/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <nav className="nav flex justify-between">
+          <Image src={Logo} alt="Payroc Logo" />
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }

@@ -9,17 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-common-types": "^6.2.1",
+    "@fortawesome/pro-regular-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "ai": "^3.0.13",
     "next": "14.1.4",
     "openai": "^4.29.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sass": "^1.72.0"
   },
   "devDependencies": {
+    "@payroc/react": "1.37.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@payroc/react": "1.37.0",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
