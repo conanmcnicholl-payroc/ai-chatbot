@@ -8,6 +8,14 @@ import {
 
 import { Textfield } from "@payroc/react";
 
+const roleToColorMap: Record<Message["role"], string> = {
+  system: "red",
+  user: "black",
+  function: "blue",
+  assistant: "green",
+  data: "orange",
+};
+
 export default function Chat() {
   const { status, messages, input, submitMessage, handleInputChange } =
     useAssistant({ api: "/api/assistant" });
@@ -15,7 +23,11 @@ export default function Chat() {
   return (
     <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
       {messages.map((m: Message) => (
-        <div key={m.id} className={`whitespace-pre-wrap ${m.role}-message`}>
+        <div
+          key={m.id}
+          className="whitespace-pre-wrap"
+          style={{ color: roleToColorMap[m.role] }}
+        >
           <strong>{`${m.role}: `}</strong>
           {m.role !== "data" && m.content}
           {m.role === "data" && (
@@ -28,18 +40,20 @@ export default function Chat() {
               </pre>
             </>
           )}
+          <br />
+          <br />
         </div>
       ))}
 
       {status === "in_progress" && (
-        <div className="h-8 w-full max-w-md p-2 mb-8 bg-gray-300 rounded-lg animate-pulse flex"></div>
+        <div className="h-8 w-full max-w-md p-2 mb-8 bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse" />
       )}
 
       <form onSubmit={submitMessage}>
         <Textfield
           disabled={status !== "awaiting_message"}
           value={input}
-          placeholder="What do you need?"
+          placeholder="What is the temperature in the living room?"
           onChange={handleInputChange}
         />
       </form>
